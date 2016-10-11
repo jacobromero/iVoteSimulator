@@ -8,11 +8,11 @@ public class Student {
 
     public Student() {
         Random r = new Random();
-        id = Integer.toString(r.nextInt());
+        id = Integer.toString(r.nextInt(Integer.MAX_VALUE));
     }
 
-    public void submitAnwer(String answer, Question question) {
-        question.submit(answer);
+    public void submitAnswer(String answer, Question question) {
+        question.submit(this.id, answer);
     }
 
     public String toString() {
