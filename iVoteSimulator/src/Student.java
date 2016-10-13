@@ -11,8 +11,8 @@ public class Student {
         id = Integer.toString(r.nextInt(Integer.MAX_VALUE));
     }
 
-    public void submitAnswer(String answer, Question question) {
-        question.submit(this.id, answer);
+    public void submitAnswer(Question question, String... answers) {
+        question.submit(this.id, answers);
     }
 
     public String toString() {

@@ -4,13 +4,18 @@
 public class SimulationDriver {
     public static void main(String[] args) {
         IVoteService ivs = new IVoteService();
-        Question question1 = ivs.createQuestion("Enter yes or no", "yes", "no");
+        Question question1 = ivs.createQuestion("Enter yes or no", "a", "b", "c");
+//        Question question1 = ivs.createQuestion("Enter yes or no", "yes", "no");
         System.out.println(question1);
 
         Student s = new Student();
-        s.submitAnswer("yes", question1);
-        s.submitAnswer("no", question1);
+        Student s2 = new Student();
+        s.submitAnswer(question1, "a", "b", "c");
+//        s.submitAnswer(question1, "yes");
+        s2.submitAnswer(question1, "a", "b");
+//        s2.submitAnswer(question1, "no");
 
-        ivs.getResults();
+        ivs.getRawResults(question1);
+        ivs.getAggregateResults(question1);
     }
 }

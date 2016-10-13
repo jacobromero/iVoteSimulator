@@ -6,5 +6,6 @@ import java.util.HashMap;
 public interface Question {
     void submit(String id, String... answer);
     String toString();
-    HashMap getSubmittedAnswers();
+    HashMap getRawSubmittedAnswers();
+    HashMap getAggregateSubmittedAnswers();
 }
