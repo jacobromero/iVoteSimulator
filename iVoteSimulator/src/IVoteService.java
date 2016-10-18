@@ -8,6 +8,7 @@ import java.util.Set;
  */
 
 public class IVoteService {
+    public static HashMap<String, String> studentRoster = new HashMap<String, String>();
     private List<Question> questionList = new LinkedList<Question>();
     public Question createQuestion(String text, String... answers) {
         Question question;
@@ -27,9 +28,9 @@ public class IVoteService {
         for(String key : keys) {
             Object value = studentAnswers.get(key);
             if (value instanceof String) {
-                System.out.println("Student " + key + " answered " + studentAnswers.get(key));
+                System.out.println("Student " + studentRoster.get(key) + "(" + key + ") " + " answered " + studentAnswers.get(key));
             } else {
-                System.out.print("Student " + key + " answered : ");
+                System.out.print("Student " + studentRoster.get(key) + "(" + key + ") " + " answered : ");
                 for(String answer : (String[]) value) {
                     System.out.print(answer + ", ");
                 }
@@ -43,5 +44,9 @@ public class IVoteService {
         for(String key : keys) {
             System.out.println(q.getAggregateSubmittedAnswers().get(key) + " Students answered: " + key);
         }
+    }
+
+    public void addToRoster(Student s) {
+        studentRoster.put(s.getId(), s.getName());
     }
 }

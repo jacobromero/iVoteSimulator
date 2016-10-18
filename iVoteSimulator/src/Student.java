@@ -5,10 +5,12 @@ import java.util.Random;
  */
 public class Student {
     private String id;
+    private String name;
 
-    public Student() {
+    public Student(String stuName) {
         Random r = new Random();
         id = Integer.toString(r.nextInt(Integer.MAX_VALUE));
+        name = stuName;
     }
 
     public void submitAnswer(Question question, String... answers) {
@@ -16,6 +18,14 @@ public class Student {
     }
 
     public String toString() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
         return id;
     }
 }
